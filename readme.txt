@@ -1,6 +1,5 @@
 === Membee Login ===
-Contributors: daleab
-Donate link: http://example.com/
+Contributors: DaleAB, achilles_sm
 Tags: membership, login, members, membee
 Requires at least: 3.0.0
 Tested up to: 3.3.1
@@ -28,7 +27,7 @@ Here's how to install the Membee Login plugin in your WordPress site:
 1. When the Membee Login plugin appears in the search results, choose the "Install Now" link
 1. Answer "yes" to the "Are you sure you want to install this plugin?" prompt
 1. Choose "Activate Plugin" - takes you to the Installed Plugins section of the Dashboard
-1. Choose the "Activate" link under the Membee Login Plugin
+1. Choose the "Activate" link under the Membee Login plugin
 1. You're done!
 
 
@@ -36,15 +35,15 @@ Here's how to install the Membee Login plugin in your WordPress site:
 
 = Do we need use Membee to manage our membership? =
 
-Yes. The sole purpose for this plugin is allow you to manage member access to protected content from their member record, committees, or groups in Membee while making it "check box easy" to grant or restrict acess to content over in your WordPress site when you create a new page or section of your site.
+Yes. The sole purpose for this plugin is allow you to manage member access to protected content from their member record, committees, or groups in Membee while making it "check box easy" to grant or restrict access to content over in your WordPress site when you create a new page or section.
 
 = What do we need to do when we get a new member in Membee? =
 
-Nothing. Just send the member the link to setup their password ([here is how to do that in Membee for an individual member or a group of member](http://membee.zendesk.com/entries/20662423-social-login-making-secured-access-easier-for-members#EnableMembers)) and once they have setup their password or selected a Social Network to use to login, the plugin takes it from there. When the member then visits your site and tries to access a "members only" content area, their latest and greatest access role information is updated in WordPress via the Membee Login plugin. 
+Nothing. Just send the member the link to setup their password ([here is how to do that in Membee for an individual member or a group of member](http://membee.zendesk.com/entries/20662423/)) and once they have setup their password or selected a Social Network to use to login, the plugin takes it from there. When the member then visits your site and tries to access a "members only" content area, their latest and greatest access role information is updated in WordPress via the Membee Login plugin. 
 
 = How do we create access roles in Membee? =
 
-Easy. In Membee, just create the role and then assign it to a group ( a list of people) or a committee. Once the role is associated with the group and/or committee, all of the members in that group or committee automatically get the role. Similarly, remove someone from a group or committee and they automatcially lose any role(s) associated with that group or committee. [Here are the steps in Membee](http://membee.zendesk.com/entries/20730812-programs-access-roles/).
+Easy. In Membee, just create the role and then assign it to a group ( a list of people) or a committee. Once the role is associated with the group and/or committee, all of the members in that group or committee automatically get the role. Similarly, remove someone from a group or committee and they automatcially lose any role(s) associated with that group or committee. [Here are the steps in Membee](http://membee.zendesk.com/entries/20730812/).
 
 = Do our members need to login twice if we use other Membee features on our site? =
 
