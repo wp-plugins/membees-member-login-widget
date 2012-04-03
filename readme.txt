@@ -44,7 +44,7 @@ Nothing. Just send the member the link to setup their password ([here is how to 
 
 = How do we create access roles in Membee? =
 
-Easy. In Membee, just create the role and then assign it to a group ( a list of people) or a committee. Once the role is associated with the group and/or committee, all of the members in that group or committee automatically get the role. Similarly, remove someone from a group or committee and they automatcially lose any role(s) associated with that group or committee. [Here are the steps in Membee].(http://membee.zendesk.com/entries/20730812-programs-access-roles)
+Easy. In Membee, just create the role and then assign it to a group ( a list of people) or a committee. Once the role is associated with the group and/or committee, all of the members in that group or committee automatically get the role. Similarly, remove someone from a group or committee and they automatcially lose any role(s) associated with that group or committee. [Here are the steps in Membee](http://membee.zendesk.com/entries/20730812-programs-access-roles).
 
 = Do our members need to login twice if we use other Membee features on our site? =
 
