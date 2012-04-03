@@ -1,0 +1,1 @@
+Placeholder text file for the Membee Login plugin
