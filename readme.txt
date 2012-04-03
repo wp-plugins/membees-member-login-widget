@@ -1,11 +1,11 @@
 === Membee Login ===
 Contributors: DaleAB, achilles_sm
-Tags: membership, login, members, membee
+Tags: membership, login, members, membee, social, authentication
 Requires at least: 3.0.0
 Tested up to: 3.3.1
 Stable tag: 1.0.3
 
-Plugin to add member authentication via Membee's Single Sign-On web service.
+Add member authentication and access role management to your WordPress site via Membee's powerful Member Single Sign-On web service
 
 == Description ==
 
