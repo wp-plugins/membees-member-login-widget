@@ -34,7 +34,7 @@ Here's how to install the Membee Login plugin in your WordPress site:
 
 == Frequently Asked Questions ==
 
-= Do we need use Membee to manage our membership?=
+= Do we need use Membee to manage our membership? =
 
 Yes. The sole purpose for this plugin is allow you to manage member access to protected content from their member record, committees, or groups in Membee while making it "check box easy" to grant or restrict acess to content over in your WordPress site when you create a new page or section of your site.
 
