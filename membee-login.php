@@ -3,7 +3,7 @@
 Plugin Name: Membee Login
 Plugin URI: 
 Description: Plugin to add authentication via Membee Single Sign-On service.
-Version: 1.0.0
+Version: 1.0.3
 Author: achilles_sm
 Author URI: https://www.odesk.com/users/~~ea464c4f281cbab8
 License: GPL
@@ -37,7 +37,7 @@ if (function_exists('json_encode')) {
       }
       if ((!is_user_logged_in())&&($_SERVER['PHP_SELF'] != '/wp-login.php')) {         
         if (!$_COOKIE['membee-checked']) {                        //check if logged in at membee server  
-          setcookie('membee-checked', 1, time()+5*60);                   //perform checks not more often than once in 5 min
+          setcookie('membee-checked', 1, time()+5*60);            //perform checks not more often than once in 5 min
           wp_safe_redirect('https://memberservices.membee.com/feeds/login/LoginCheck.aspx?clientid='.$membee_options['client_id'].'&appid='.$membee_options['app_id'].'&destURL='.urlencode('http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']));
           exit;
         }                                       
