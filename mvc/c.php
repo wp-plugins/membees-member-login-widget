@@ -10,7 +10,7 @@ function process_membee_options() {                           // save Membee opt
     if (isset($_POST['client_id'])&&((strlen($_POST['client_id'])>10)||(!is_numeric($_POST['client_id'])))) $membee_options['message'] .= 'Client ID you entered is invalid!<br />';   
     $membee_options['client_id'] = get_option('client_id');
   } 
-  if ( (isset($_POST['secret'])) && (strip_tags($_POST['secret'])==$_POST['secret']) && (strlen(trim($_POST['secret'])) == 36 ) && (current_user_can('manage_options')) ) {   // double check length of the secret
+  if ( (isset($_POST['secret'])) && (strip_tags($_POST['secret'])==$_POST['secret']) && ((strlen(trim($_POST['secret'])) == 36)||(strlen(trim($_POST['secret'])) == 0)) && (current_user_can('manage_options')) ) {   // double check length of the secret
     $membee_options['secret'] = strip_tags(trim($_POST['secret']));
     update_option('secret', $membee_options['secret']);    
   } else {
