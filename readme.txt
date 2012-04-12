@@ -47,7 +47,7 @@ Easy. In Membee, just create the role and then assign it to a group ( a list of 
 
 = Do our members need to login twice if we use other Membee features on our site? =
 
-No. The Membee Login plugin supports Membee's full member single sign-on service. So, a member can choose to login to login to access "members only" content and then decide to update the member profile in Membee's Profile widget and Membee knows who they are and present their member profile to them for updating. Yes, if the reverse scenarion works too!
+No. The Membee Login plugin supports Membee's full member single sign-on service. So, a member can choose to login to access "members only" content and then decide to update the member profile in Membee's Profile widget and Membee knows who they are and presents their member profile to them for updating. Yes, the reverse scenario works too!
 
 
 == Changelog ==
