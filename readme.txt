@@ -1,4 +1,4 @@
-=== Membee Login ===
+=== Membee Login === 
 Contributors: DaleAB, achilles_sm
 Tags: membership, login, members, membee, social, authentication
 Requires at least: 2.7.0
