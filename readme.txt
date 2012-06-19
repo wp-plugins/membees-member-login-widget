@@ -36,14 +36,14 @@ Note you should only make the following change if your site exhibits the behavio
 
 The fix is to temporarily disable the Membee Login plugin for the AJAX calls you are making. Here are the steps:
 
-1. Open your theme's "functions.php" file
-2. Add the follow code
+a) Open your theme's "functions.php" file
+b) Add the follow code
 
 if (check_ajax_referer( 'your-special-string', 'security', false )) {  
   remove_action('init', 'membee_init');
 }
 
-3. Substitute arguments for check_ajax_referer function with values you used in your AJAX call
+c) Substitute arguments for check_ajax_referer function with values you used in your AJAX call
 
 == Frequently Asked Questions == 
 
