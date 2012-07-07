@@ -16,7 +16,8 @@ The plug-in also extends Membee's support for it's Social Login feature. This fe
 
 == Installation ==
 
-Here's how to install the Membee Login plugin in your WordPress site: 
+Here's how to install the Membee Login plugin in your WordPress site:
+
 1. Login to your WordPress site and go to the Dashboard 
 1. Choose Plugins
 1. Choose "Add New"
