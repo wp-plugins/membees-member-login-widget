@@ -16,14 +16,18 @@ The plug-in also extends Membee's support for it's Social Login feature. This fe
 
 == Installation ==
 
-Here's how to install the Membee Login plugin in your WordPress site:
-1. Login to your WordPress site and go to the Dashboard
+Here's how to install the Membee Login plugin in your WordPress site: 
+1. Login to your WordPress site and go to the Dashboard 
 1. Choose Plugins
-1. Under Search, choose "Search By Tag"
-1. Type the "membee" and click Search
-1. When the Membee Login plugin appears in the search results, choose the "Install Now" link
-1. Answer "yes" to the "Are you sure you want to install this plugin?" prompt
-1. Choose "Activate Plugin" - takes you to the Installed Plugins section of the Dashboard1. Choose the "Activate" link under the Membee Login plugin
+1. Choose "Add New"
+1. Type "membee" and click Search Plugins
+1. When the Membee Login plugin appears in the search results, choose the "Install Now" link 
+1. Answer "OK" to the "Are you sure you want to install this plugin?" prompt 
+1. Choose "Activate Plugin" - takes you to the Installed Plugins section of the Dashboard
+1. Choose Settings on the Dashboard
+1. Choose Membee Login
+1. In Membee Login Options, enter the Client ID, Secret, and Application ID (these are generated in Membee's "Programs & Access Roles" feature - see http://membee.zendesk.com/entries/21277223-setting-up-membee-s-integrated-login-system-with-your-wordpress-site)
+1. Choose Save Options
 1. You're done!
 
 Known Issues
