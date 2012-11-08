@@ -1,9 +1,9 @@
-=== Membee Login ===
+=== Membee Login === 
 Contributors: DaleAB, achilles_sm
 Tags: membership, login, members, membee, social, authentication
 Requires at least: 2.7.0
-Tested up to: 3.3.1
-Stable tag: 1.0.4
+Tested up to: 3.4.2
+Stable tag: 1.1.0
 Add member authentication and access role management to your WordPress site via Membee's powerful Member Single Sign-On web service
 
 == Description ==
@@ -17,13 +17,18 @@ The plug-in also extends Membee's support for it's Social Login feature. This fe
 == Installation ==
 
 Here's how to install the Membee Login plugin in your WordPress site:
-1. Login to your WordPress site and go to the Dashboard
+
+1. Login to your WordPress site and go to the Dashboard 
 1. Choose Plugins
-1. Under Search, choose "Search By Tag"
-1. Type the "membee" and click Search
-1. When the Membee Login plugin appears in the search results, choose the "Install Now" link
-1. Answer "yes" to the "Are you sure you want to install this plugin?" prompt
-1. Choose "Activate Plugin" - takes you to the Installed Plugins section of the Dashboard1. Choose the "Activate" link under the Membee Login plugin
+1. Choose "Add New"
+1. Type "membee" and click Search Plugins
+1. When the Membee Login plugin appears in the search results, choose the "Install Now" link 
+1. Answer "OK" to the "Are you sure you want to install this plugin?" prompt 
+1. Choose "Activate Plugin" - takes you to the Installed Plugins section of the Dashboard
+1. Choose Settings on the Dashboard
+1. Choose Membee Login
+1. In Membee Login Options, enter the Client ID, Secret, and Application ID (these are generated in Membee's "Programs & Access Roles" feature - see http://membee.zendesk.com/entries/21277223-setting-up-membee-s-integrated-login-system-with-your-wordpress-site )
+1. Choose Save Options
 1. You're done!
 
 Known Issues
@@ -36,14 +41,13 @@ Note you should only make the following change if your site exhibits the behavio
 
 The fix is to temporarily disable the Membee Login plugin for the AJAX calls you are making. Here are the steps:
 
-1. Open your theme's "functions.php" file
-2. Add the follow code
+a) Open your theme's "functions.php" file and add the following code:
 
 if (check_ajax_referer( 'your-special-string', 'security', false )) {  
   remove_action('init', 'membee_init');
 }
 
-3. Substitute arguments for check_ajax_referer function with values you used in your AJAX call
+b) Substitute arguments for check_ajax_referer function with values you used in your AJAX call
 
 == Frequently Asked Questions == 
 
@@ -64,6 +68,9 @@ Easy. In Membee, just create the role and then assign it to a group ( a list of 
 No. The Membee Login plugin supports Membee's full member single sign-on service. So, a member can choose to login to access "members only" content and then decide to update the member profile in Membee's Profile widget and Membee knows who they are and presents their member profile to them for updating. Yes, the reverse scenario works too!
 
 == Changelog ==
+
+= 1.1.0 =
+* Removed a small compatibility issue with some social sharing plugins that prevented the "fetching" of images from a WP post when a user was trying to share the post on a social network. The plugin now allows for pre-existing people in the WordPress Users table who possessed site admin roles and capabilities to inherit member roles defined and managed in Membee. 
 
 = 1.0.4 =
 * Revision to better take advantage of WordPress' ability to hide/display menu choices via the "Display In Menus" feature based on whether or not the site visitor has logged in
