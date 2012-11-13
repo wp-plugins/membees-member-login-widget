@@ -3,7 +3,7 @@ Contributors: DaleAB, achilles_sm
 Tags: membership, login, members, membee, social, authentication
 Requires at least: 2.7.0
 Tested up to: 3.4.2
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 Add member authentication and access role management to your WordPress site via Membee's powerful Member Single Sign-On web service
 
 == Description ==
