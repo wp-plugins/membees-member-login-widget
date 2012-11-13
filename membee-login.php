@@ -19,7 +19,6 @@ License: GPL
 */
 
 
-
 $orig_error_display = ini_get('display_errors');                // hiding errors for security
 
 ini_set('display_errors', 0);
@@ -105,8 +104,11 @@ if (function_exists('json_encode')) {
     }            
 
   }
-
-  add_action('init', 'membee_init');
+  $ua = $_SERVER['HTTP_USER_AGENT'];
+  if ((!preg_match('/facebookexternalhit/si',$ua))&&(!preg_match('/googlebot/si',$ua))&&(!preg_match('/gsa-crawler/si',$ua))&&(!preg_match('/LinkedInBot/si',$ua))) {
+    add_action('init', 'membee_init'); 
+  }
+  
 
   
 
