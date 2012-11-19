@@ -3,7 +3,7 @@ Contributors: DaleAB, achilles_sm
 Tags: membership, login, members, membee, social, authentication
 Requires at least: 2.7.0
 Tested up to: 3.4.2
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 Add member authentication and access role management to your WordPress site via Membee's powerful Member Single Sign-On web service
 
 == Description ==
@@ -69,8 +69,8 @@ No. The Membee Login plugin supports Membee's full member single sign-on service
 
 == Changelog ==
 
-= 1.1.0 =
-* Removed a small compatibility issue with some social sharing plugins that prevented the "fetching" of images from a WP post when a user was trying to share the post on a social network. The plugin now allows for pre-existing people in the WordPress Users table who possessed site admin roles and capabilities to inherit member roles defined and managed in Membee. 
+= 1.1.1 =
+* Removed an issue with a social sharing plugin that prevented the "fetching" of images from a WP post when a user was trying to share the post on a social network. The plugin now allows for people in the WP Users table with site admin roles to inherit member roles defined & managed in Membee. 
 
 = 1.0.4 =
 * Revision to better take advantage of WordPress' ability to hide/display menu choices via the "Display In Menus" feature based on whether or not the site visitor has logged in
@@ -88,6 +88,10 @@ No. The Membee Login plugin supports Membee's full member single sign-on service
 * Initial release for testers.
 
 == Upgrade Notice ==
+
+= 1.1.1 = 
+Removed an issue with a social sharing plugin that prevented the "fetching" of images from a WP post when a user was trying to share the post on a social network. The plugin now allows for people in the WP Users table with site admin roles to inherit member roles defined & managed in Membee.
+
 = 1.0.4 =
 Better support for the "Display In Menus" WordPress feature
 
