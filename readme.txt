@@ -69,7 +69,7 @@ No. The Membee Login plugin supports Membee's full member single sign-on service
 
 == Changelog ==
 
-= 1.1.1 =
+= 1.1.1 = 
 * Removed a small compatibility issue with some social sharing plugins that prevented the "fetching" of images from a WP post when a user was trying to share the post on a social network. The plugin now allows for pre-existing people in the WordPress Users table who possessed site admin roles and capabilities to inherit member roles defined and managed in Membee. 
 
 = 1.0.4 =
