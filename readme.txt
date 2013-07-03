@@ -69,7 +69,7 @@ No. The Membee Login plugin supports Membee's full member single sign-on service
 
 == Changelog ==
 
-= 1.1.1 = 
+= 1.1.1 =
 * Removed an issue with a social sharing plugin that prevented the "fetching" of images from a WP post when a user was trying to share the post on a social network. The plugin now allows for people in the WP Users table with site admin roles to inherit member roles defined & managed in Membee. 
 
 = 1.0.4 =
@@ -90,7 +90,7 @@ No. The Membee Login plugin supports Membee's full member single sign-on service
 == Upgrade Notice ==
 
 = 1.1.1 = 
-Removed an issue with a social sharing plugin that prevented the "fetching" of images from a WP post when a user was trying to share the post on a social network. The plugin now allows for people in the WP Users table with site admin roles to inherit member roles defined & managed in Membee. 
+Removed an issue with a social sharing plugin that prevented the "fetching" of images from a WP post when a user was trying to share the post on a social network. The plugin now allows for people in the WP Users table with site admin roles to inherit member roles defined & managed in Membee.
 
 = 1.0.4 =
 Better support for the "Display In Menus" WordPress feature
