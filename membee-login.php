@@ -8,7 +8,7 @@ Plugin URI:
 
 Description: Plugin to add authentication via Membee Single Sign-On service.
 
-Version: 1.1.2
+Version: 1.1.3
 
 Author: achilles_sm
 

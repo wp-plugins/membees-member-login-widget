@@ -80,15 +80,7 @@ function prepare_flyout() {                                   //prepare flyout M
 
   if ($membee_options['secret']) {
 
-    wp_deregister_script('jquery');
-
-    wp_register_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js');  
-
     wp_enqueue_script('jquery');
-
-    wp_deregister_script('jqueryui');
-
-    wp_register_script('jqueryui', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js');
 
     wp_enqueue_script('jqueryui');    
 
