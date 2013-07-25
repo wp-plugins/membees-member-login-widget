@@ -44,8 +44,8 @@ function prepare_user_sign_in($userdata) {
   if ($user) {
     $user_id = $user->ID;
   } else {
-    $user_id = false;
-  }        
+    $user_id = username_exists($userdata->UserID);
+  }
 
   if (!$user_id) {    
 

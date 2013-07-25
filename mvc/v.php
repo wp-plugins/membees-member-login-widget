@@ -80,15 +80,7 @@ function prepare_flyout() {                                   //prepare flyout M
 
   if ($membee_options['secret']) {
 
-    wp_deregister_script('jquery');
-
-    wp_register_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js');  
-
     wp_enqueue_script('jquery');
-
-    wp_deregister_script('jqueryui');
-
-    wp_register_script('jqueryui', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js');
 
     wp_enqueue_script('jqueryui');    
 
@@ -104,14 +96,19 @@ function enqueue_membee() {
 
   global $membee_options;
 
-  echo '<script type="text/javascript" src="https://memberservices.membee.com/feeds/Login/LoginScript.ashx?clientid='.$membee_options['client_id'].'&appid='.$membee_options['app_id'].'&destURL='.urlencode('http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']).'"></script>';
+  echo '<script type="text/javascript">
+  	jQuery(function($) {
+  		if ($("#MembeeSignInLink").length>0) {
+  			 $.getScript("https://memberservices.membee.com/feeds/Login/LoginScript.ashx?clientid='.$membee_options['client_id'].'&appid='.$membee_options['app_id'].'&destURL='.urlencode('http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']).'")
+		}
+	})
+  </script>';
+  
 }
 
 
 
 function membee_widget() {                                    //iFrame Membee widget 
-
-  global $membee_error_message, $membee_options;              //to be removed after testing
 
   if (is_user_logged_in()) {    
 
@@ -132,12 +129,6 @@ function membee_widget() {                                    //iFrame Membee wi
   <?php
 
   }
-
-  if ($membee_error_message) {                                //to be removed after testing
-
-    echo 'Error messages:<br />'.$membee_error_message;       //to be removed after testing
-
-  }                                                           //to be removed after testing
 
 }   
 
@@ -161,7 +152,7 @@ function membee_flyout_widget() {
 
   ?>
 
-    <a id="MembeeSignInLink" href="#">Sign In</a> <div id="MembeeSignInModal" />    
+    <a id="MembeeSignInLink" href="#">Sign In</a> <div id="MembeeSignInModal"></div>    
 
   <?php
 

@@ -2,8 +2,8 @@
 Contributors: DaleAB, achilles_sm
 Tags: membership, login, members, membee, social, authentication
 Requires at least: 2.7.0
-Tested up to: 3.4.2
-Stable tag: 1.1.1
+Tested up to: 3.5.2
+Stable tag: 1.1.3
 Add member authentication and access role management to your WordPress site via Membee's powerful Member Single Sign-On web service
 
 == Description ==
@@ -69,7 +69,13 @@ No. The Membee Login plugin supports Membee's full member single sign-on service
 
 == Changelog ==
 
-= 1.1.1 = 
+= 1.1.3 =
+* Insured that the plugin uses the latest stable version of the jQuery library
+
+= 1.1.2 =
+* Addressed the erroneous generation of two script errors that did not affect the performance of the plugin
+
+= 1.1.1 =
 * Removed an issue with a social sharing plugin that prevented the "fetching" of images from a WP post when a user was trying to share the post on a social network. The plugin now allows for people in the WP Users table with site admin roles to inherit member roles defined & managed in Membee. 
 
 = 1.0.4 =
@@ -89,8 +95,14 @@ No. The Membee Login plugin supports Membee's full member single sign-on service
 
 == Upgrade Notice ==
 
+= 1.1.3 =
+* Insured that the plugin uses the latest stable version of the jQuery library
+
+= 1.1.2 =
+* Addressed the erroneous generation of two script errors that did not affect the performance of the plugin
+
 = 1.1.1 = 
-Removed an issue with a social sharing plugin that prevented the "fetching" of images from a WP post when a user was trying to share the post on a social network. The plugin now allows for people in the WP Users table with site admin roles to inherit member roles defined & managed in Membee. 
+Removed an issue with a social sharing plugin that prevented the "fetching" of images from a WP post when a user was trying to share the post on a social network. The plugin now allows for people in the WP Users table with site admin roles to inherit member roles defined & managed in Membee.
 
 = 1.0.4 =
 Better support for the "Display In Menus" WordPress feature
