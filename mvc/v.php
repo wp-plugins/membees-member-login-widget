@@ -82,7 +82,7 @@ function prepare_flyout() {                                   //prepare flyout M
 
     wp_enqueue_script('jquery');
 
-    wp_enqueue_script('jqueryui');    
+    wp_enqueue_script('jquery-ui-core');    
 
     add_action('wp_print_footer_scripts', 'enqueue_membee');
 
