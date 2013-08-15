@@ -82,7 +82,9 @@ function prepare_flyout() {                                   //prepare flyout M
 
     wp_enqueue_script('jquery');
 
-    wp_enqueue_script('jquery-ui-core');    
+    wp_enqueue_script('jquery-ui-core');
+    
+    wp_enqueue_script('jquery-ui-dialog');    
 
     add_action('wp_print_footer_scripts', 'enqueue_membee');
 
@@ -97,6 +99,7 @@ function enqueue_membee() {
   global $membee_options;
 
   echo '<script type="text/javascript">
+    $ = jQuery.noConflict();
   	jQuery(function($) {
   		if ($("#MembeeSignInLink").length>0) {
   			 $.getScript("https://memberservices.membee.com/feeds/Login/LoginScript.ashx?clientid='.$membee_options['client_id'].'&appid='.$membee_options['app_id'].'&destURL='.urlencode('http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']).'")
