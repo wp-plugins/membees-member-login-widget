@@ -8,7 +8,7 @@ Plugin URI:
 
 Description: Plugin to add authentication via Membee Single Sign-On service.
 
-Version: 1.1.5
+Version: 1.1.6
 
 Author: achilles_sm
 
@@ -105,7 +105,7 @@ if (function_exists('json_encode')) {
 
   }
   $ua = $_SERVER['HTTP_USER_AGENT'];
-  if ((!preg_match('/facebookexternalhit/si',$ua))&&(!preg_match('/googlebot/si',$ua))&&(!preg_match('/gsa-crawler/si',$ua))&&(!preg_match('/LinkedInBot/si',$ua))) {
+  if ((!preg_match('/facebookexternalhit/si',$ua))&&(!preg_match('/googlebot/si',$ua))&&(!preg_match('/gsa-crawler/si',$ua))&&(!preg_match('/LinkedInBot/si',$ua))&&(!preg_match('/feedburner/si',$ua))) {
     add_action('init', 'membee_init'); 
   }
   
