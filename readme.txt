@@ -2,8 +2,8 @@
 Contributors: DaleAB, achilles_sm
 Tags: membership, login, members, membee, social, authentication
 Requires at least: 2.7.0
-Tested up to: 3.7.1
-Stable tag: 1.1.6
+Tested up to: 3.9.1
+Stable tag: 1.1.7
 Add member authentication and access role management to your WordPress site via Membee's powerful Member Single Sign-On web service
 
 == Description ==
@@ -68,6 +68,11 @@ Easy. In Membee, just create the role and then assign it to a group ( a list of 
 No. The Membee Login plugin supports Membee's full member single sign-on service. So, a member can choose to login to access "members only" content and then decide to update the member profile in Membee's Profile widget and Membee knows who they are and presents their member profile to them for updating. Yes, the reverse scenario works too!
 
 == Changelog ==
+
+= 1.1.7 =
+* Removed a conflict with a Google+ plugin
+* Added friendlier error handling
+* Will retain settings when WordPress updates its version
 
 = 1.1.6 =
 * Removed a conflict with FeedBurner
