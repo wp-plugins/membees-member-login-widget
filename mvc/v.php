@@ -20,11 +20,11 @@ function display_membee_login_options() {                     //admin options pa
 
     <form id="membee-options" action="<?php echo 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']; ?>" method="POST">
 
-      <span class="membee-label">Client ID</span><input id="clientid" name="client_id" type="text" size="60" value="<?php if ($membee_options['client_id']) echo $membee_options['client_id']; ?>" />
+      <span class="membee-label">Client ID</span><input id="clientid" name="membee_client_id" type="text" size="60" value="<?php if ($membee_options['membee_client_id']) echo $membee_options['membee_client_id']; ?>" />
 
-      <span class="membee-label">Secret</span><input id="secret" name="secret" type="text" size="60" value="<?php if ($membee_options['secret']) echo $membee_options['secret']; ?>" />
+      <span class="membee-label">Secret</span><input id="secret" name="membee_secret" type="text" size="60" value="<?php if ($membee_options['membee_secret']) echo $membee_options['membee_secret']; ?>" />
 
-      <span class="membee-label">Application ID</span><input id="appid" name="app_id" size="60" type="text" value="<?php if ($membee_options['app_id']) echo $membee_options['app_id']; ?>" />
+      <span class="membee-label">Application ID</span><input id="appid" name="membee_app_id" size="60" type="text" value="<?php if ($membee_options['membee_app_id']) echo $membee_options['membee_app_id']; ?>" />
 
       <input type="submit" value="Save options" id="submit-membee-options" />
 
@@ -36,7 +36,7 @@ function display_membee_login_options() {                     //admin options pa
 
   ?>  
 
-    <div id="membee-options-errors"><?php echo $membee_options['message']; ?></div>
+    <div id="membee-options-errors"><?php echo $membee_options['membee_message']; ?></div>
 
   <?php
 
@@ -78,19 +78,13 @@ function prepare_flyout() {                                   //prepare flyout M
 
   global $membee_options;
 
-  if ($membee_options['secret']) {
-
-    wp_deregister_script('jquery');
-
-    wp_register_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js');  
+  if ($membee_options['membee_secret']) {
 
     wp_enqueue_script('jquery');
 
-    wp_deregister_script('jqueryui');
-
-    wp_register_script('jqueryui', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js');
-
-    wp_enqueue_script('jqueryui');    
+    wp_enqueue_script('jquery-ui-core');
+    
+    wp_enqueue_script('jquery-ui-dialog');    
 
     add_action('wp_print_footer_scripts', 'enqueue_membee');
 
@@ -104,20 +98,26 @@ function enqueue_membee() {
 
   global $membee_options;
 
-  echo '<script type="text/javascript" src="https://memberservices.membee.com/feeds/Login/LoginScript.ashx?clientid='.$membee_options['client_id'].'&appid='.$membee_options['app_id'].'&destURL='.urlencode('http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']).'"></script>';
+  echo '<script type="text/javascript">
+    $ = jQuery.noConflict();
+  	jQuery(function($) {
+  		if ($("#MembeeSignInLink").length>0) {
+  			 $.getScript("https://memberservices.membee.com/feeds/Login/LoginScript.ashx?clientid='.$membee_options['membee_client_id'].'&appid='.$membee_options['membee_app_id'].'&destURL='.urlencode('http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']).'")
+		}
+	})
+  </script>';
+  
 }
 
 
 
 function membee_widget() {                                    //iFrame Membee widget 
 
-  global $membee_error_message, $membee_options;              //to be removed after testing
-
   if (is_user_logged_in()) {    
 
   ?>
 
-    <a href="<?php echo wp_logout_url( 'https://memberservices.membee.com/feeds/Login/Logout.aspx?clientid='.$membee_options['client_id'].'&appid='.$membee_options['app_id'].'&returnURL='.urlencode('http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']) ); ?>">Log out</a>    
+    <a href="<?php echo wp_logout_url( 'https://memberservices.membee.com/feeds/Login/Logout.aspx?clientid='.$membee_options['membee_client_id'].'&appid='.$membee_options['membee_app_id'].'&returnURL='.urlencode('http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']) ); ?>">Log out</a>    
 
   <?php
 
@@ -127,17 +127,11 @@ function membee_widget() {                                    //iFrame Membee wi
 
   ?>
 
-    <script src="https://memberservices.membee.com/feeds/Login/LoginFrameScript.ashx?clientid=<?php echo $membee_options['client_id']; ?>&appid=<?php echo $membee_options['app_id']; ?>&destURL=<?php echo urlencode('http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']); ?>" type="text/javascript"></script>    
+    <script src="https://memberservices.membee.com/feeds/Login/LoginFrameScript.ashx?clientid=<?php echo $membee_options['membee_client_id']; ?>&appid=<?php echo $membee_options['membee_app_id']; ?>&destURL=<?php echo urlencode('http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']); ?>" type="text/javascript"></script>    
 
   <?php
 
   }
-
-  if ($membee_error_message) {                                //to be removed after testing
-
-    echo 'Error messages:<br />'.$membee_error_message;       //to be removed after testing
-
-  }                                                           //to be removed after testing
 
 }   
 
@@ -151,7 +145,7 @@ function membee_flyout_widget() {
 
   ?>
 
-    <a href="<?php echo wp_logout_url( 'https://memberservices.membee.com/feeds/Login/Logout.aspx?clientid='.$membee_options['client_id'].'&appid='.$membee_options['app_id'].'&returnURL='.urlencode('http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']) ); ?>">Log out</a>    
+    <a href="<?php echo wp_logout_url( 'https://memberservices.membee.com/feeds/Login/Logout.aspx?clientid='.$membee_options['membee_client_id'].'&appid='.$membee_options['membee_app_id'].'&returnURL='.urlencode('http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']) ); ?>">Log out</a>    
 
   <?php
 
@@ -161,7 +155,7 @@ function membee_flyout_widget() {
 
   ?>
 
-    <a id="MembeeSignInLink" href="#">Sign In</a> <div id="MembeeSignInModal" />    
+    <a id="MembeeSignInLink" href="#">Sign In</a> <div id="MembeeSignInModal"></div>    
 
   <?php
 
@@ -177,7 +171,7 @@ function membee_reset_widget() {                              //iFrame Membee Re
 
   ?>
 
-  <script src="https://memberservices.membee.com/feeds/Login/ReAssocScript.ashx?appid=<?php echo $membee_options['app_id']; ?>&clientid=<?php echo $membee_options['client_id']; ?>" type="text/javascript"></script>    
+  <script src="https://memberservices.membee.com/feeds/Login/ReAssocScript.ashx?appid=<?php echo $membee_options['membee_app_id']; ?>&clientid=<?php echo $membee_options['membee_client_id']; ?>" type="text/javascript"></script>    
 
   <?php                                                            
 
@@ -197,7 +191,7 @@ function membee_login_shortcode( $atts ) {
 
 	if (is_user_logged_in()) {	  
 
-	  return '<a href="'.wp_logout_url( 'https://memberservices.membee.com/feeds/Login/Logout.aspx?clientid='.$membee_options['client_id'].'&appid='.$membee_options['app_id'].'&returnURL='.urlencode('http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']) ).'">Log out</a>';   
+	  return '<a href="'.wp_logout_url( 'https://memberservices.membee.com/feeds/Login/Logout.aspx?clientid='.$membee_options['membee_client_id'].'&appid='.$membee_options['membee_app_id'].'&returnURL='.urlencode('http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']) ).'">Log out</a>';   
 
   } else {
 
@@ -207,7 +201,7 @@ function membee_login_shortcode( $atts ) {
 
     if ($type == 'iframe') {
 
-      $membee .= '<script src="https://memberservices.membee.com/feeds/Login/LoginFrameScript.ashx?clientid='.$membee_options['client_id'].'&appid='.$membee_options['app_id'].'&destURL='.urlencode('http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']).'" type="text/javascript"></script>';
+      $membee .= '<script src="https://memberservices.membee.com/feeds/Login/LoginFrameScript.ashx?clientid='.$membee_options['membee_client_id'].'&appid='.$membee_options['membee_app_id'].'&destURL='.urlencode('http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']).'" type="text/javascript"></script>';
 
     } else if ($type == 'flyout') {
 
@@ -227,7 +221,7 @@ function membee_reset_shortcode() {
 
   global $membee_options;
 
-	return '<script src="https://memberservices.membee.com/feeds/Login/ReAssocScript.ashx?appid='.$membee_options['app_id'].'&clientid='.$membee_options['client_id'].'" type="text/javascript"></script>';
+	return '<script src="https://memberservices.membee.com/feeds/Login/ReAssocScript.ashx?appid='.$membee_options['membee_app_id'].'&clientid='.$membee_options['membee_client_id'].'" type="text/javascript"></script>';
 
 }
 
@@ -241,9 +235,9 @@ function change_logout_url($url) {                            //change logout ur
 
   parse_str($purl['query']);
 
-  if (!$redirect_to) {
+  if (isset($redirect_to)) {
 
-    return $url.'&redirect_to='.urlencode('https://memberservices.membee.com/feeds/Login/Logout.aspx?clientid='.$membee_options['client_id'].'&appid='.$membee_options['app_id'].'&returnURL='.urlencode(get_bloginfo('url')));
+    return $url.'&redirect_to='.urlencode('https://memberservices.membee.com/feeds/Login/Logout.aspx?clientid='.$membee_options['membee_client_id'].'&appid='.$membee_options['membee_app_id'].'&returnURL='.urlencode(get_bloginfo('url')));
 
   } else {
 
