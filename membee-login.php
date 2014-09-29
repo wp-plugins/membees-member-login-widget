@@ -8,7 +8,7 @@ Plugin URI:
 
 Description: Plugin to add authentication via Membee Single Sign-On service.
 
-Version: 1.1.7
+Version: 1.2.0
 
 Author: achilles_sm
 
@@ -73,15 +73,7 @@ if (function_exists('json_encode')) {
 
       if ((!is_user_logged_in())&&($_SERVER['PHP_SELF'] != '/wp-login.php')) {         
 
-        if (!$_COOKIE['membee-checked']) {                        //check if logged in at membee server  
-
-          setcookie('membee-checked', 1, time()+5*60);            //perform checks not more often than once in 5 min
-
-          wp_safe_redirect('https://memberservices.membee.com/feeds/login/LoginCheck.aspx?clientid='.$membee_options['membee_client_id'].'&appid='.$membee_options['membee_app_id'].'&destURL='.urlencode('http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']));
-
-          exit;
-
-        }                                       
+                                              
 
       } else if (isset($_REQUEST['redirect_to'])&&($_REQUEST['loggedin'] == true )) {   //makes it compatible with Wordpress Access Control plugin
         

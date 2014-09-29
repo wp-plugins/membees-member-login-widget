@@ -2,8 +2,8 @@
 Contributors: DaleAB, achilles_sm
 Tags: membership, login, members, membee, social, authentication
 Requires at least: 2.7.0
-Tested up to: 3.9.1
-Stable tag: 1.1.7
+Tested up to: 4.0
+Stable tag: 1.2.0
 Add member authentication and access role management to your WordPress site via Membee's powerful Member Single Sign-On web service
 
 == Description ==
@@ -69,6 +69,11 @@ No. The Membee Login plugin supports Membee's full member single sign-on service
 
 == Changelog ==
 
+= 1.2.0 =
+* Corrected rare scenario where upon logging out, a site visitor would be redirected to the native WordPress login
+* Removed an unnecessay redirect
+* Tested for WordPress 4.0
+
 = 1.1.7 =
 * Removed a conflict with a Google+ plugin
 * Added friendlier error handling
@@ -108,6 +113,12 @@ No. The Membee Login plugin supports Membee's full member single sign-on service
 * Initial release for testers.
 
 == Upgrade Notice ==
+
+= 1.2.0 =
+* Corrected rare scenario where upon logging out, a site visitor would be redirected to the native WordPress login - Removed an unnecessay redirect - Tested for WordPress 4.0
+
+= 1.1.7 =
+* Removed a conflict with a Google+ plugin - Added friendlier error handling - Will retain settings when WordPress updates its version
 
 = 1.1.6 =
 * Removed a conflict with FeedBurner

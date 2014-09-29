@@ -235,7 +235,7 @@ function change_logout_url($url) {                            //change logout ur
 
   parse_str($purl['query']);
 
-  if (isset($redirect_to)) {
+  if (!isset($redirect_to)) {
 
     return $url.'&redirect_to='.urlencode('https://memberservices.membee.com/feeds/Login/Logout.aspx?clientid='.$membee_options['membee_client_id'].'&appid='.$membee_options['membee_app_id'].'&returnURL='.urlencode(get_bloginfo('url')));
 
