@@ -6,47 +6,47 @@ function process_membee_options() {                           // save Membee opt
 
   $membee_options = array();
 
-  $membee_options['message'] = '';
+  $membee_options['membee_message'] = '';
 
-  if ( (isset($_POST['client_id'])) && (strlen($_POST['client_id'])<=10) && (is_numeric($_POST['client_id'])) && (current_user_can('manage_options')) ) {
+  if ( (isset($_POST['membee_client_id'])) && (strlen($_POST['membee_client_id'])<=10) && (is_numeric($_POST['membee_client_id'])) && (current_user_can('manage_options')) ) {
 
-    $membee_options['client_id'] = intval($_POST['client_id']);
+    $membee_options['membee_client_id'] = intval($_POST['membee_client_id']);
 
-    update_option('client_id', $membee_options['client_id']);    
+    update_option('membee_client_id', $membee_options['membee_client_id']);    
 
   } else {
 
-    if (isset($_POST['client_id'])&&((strlen($_POST['client_id'])>10)||(!is_numeric($_POST['client_id'])))) $membee_options['message'] .= 'Client ID you entered is invalid!<br />';   
+    if (isset($_POST['membee_client_id'])&&((strlen($_POST['membee_client_id'])>10)||(!is_numeric($_POST['membee_client_id'])))) $membee_options['membee_message'] .= 'Client ID you entered is invalid!<br />';   
 
-    $membee_options['client_id'] = get_option('client_id');
+    $membee_options['membee_client_id'] = get_option('membee_client_id');
 
   } 
 
-  if ( (isset($_POST['secret'])) && (strip_tags($_POST['secret'])==$_POST['secret']) && ((strlen(trim($_POST['secret'])) == 36)||(strlen(trim($_POST['secret'])) == 0)) && (current_user_can('manage_options')) ) {   // double check length of the secret
+  if ( (isset($_POST['membee_secret'])) && (strip_tags($_POST['membee_secret'])==$_POST['membee_secret']) && ((strlen(trim($_POST['membee_secret'])) == 36)||(strlen(trim($_POST['membee_secret'])) == 0)) && (current_user_can('manage_options')) ) {   // double check length of the secret
 
-    $membee_options['secret'] = strip_tags(trim($_POST['secret']));
+    $membee_options['membee_secret'] = strip_tags(trim($_POST['membee_secret']));
 
-    update_option('secret', $membee_options['secret']);    
+    update_option('membee_secret', $membee_options['membee_secret']);    
 
   } else {
 
-    if ((isset($_POST['secret']))&&((strip_tags($_POST['secret'])!=$_POST['secret'])||(strlen($_POST['secret']) != 36 ))) $membee_options['message'] .= 'Secret you entered is invalid!<br />';
+    if ((isset($_POST['membee_secret']))&&((strip_tags($_POST['membee_secret'])!=$_POST['membee_secret'])||(strlen($_POST['membee_secret']) != 36 ))) $membee_options['membee_message'] .= 'Secret you entered is invalid!<br />';
 
-    $membee_options['secret'] = get_option('secret');
+    $membee_options['membee_secret'] = get_option('membee_secret');
 
   }
 
-  if ( (isset($_POST['app_id'])) && (strlen($_POST['app_id'])<=10) && (is_numeric($_POST['app_id'])) &&  (current_user_can('manage_options')) ) {
+  if ( (isset($_POST['membee_app_id'])) && (strlen($_POST['membee_app_id'])<=10) && (is_numeric($_POST['membee_app_id'])) &&  (current_user_can('manage_options')) ) {
 
-    $membee_options['app_id'] = intval($_POST['app_id']);
+    $membee_options['membee_app_id'] = intval($_POST['membee_app_id']);
 
-    update_option('app_id', $membee_options['app_id']);    
+    update_option('membee_app_id', $membee_options['membee_app_id']);    
 
   } else {
 
-    if (isset($_POST['app_id'])&&((strlen($_POST['app_id'])>10)||(!is_numeric($_POST['app_id'])))) $membee_options['message'] .= 'Application ID you entered is invalid!<br />';   
+    if (isset($_POST['membee_app_id'])&&((strlen($_POST['membee_app_id'])>10)||(!is_numeric($_POST['membee_app_id'])))) $membee_options['membee_message'] .= 'Application ID you entered is invalid!<br />';   
 
-    $membee_options['app_id'] = get_option('app_id');
+    $membee_options['membee_app_id'] = get_option('membee_app_id');
 
   } 
 

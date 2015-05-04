@@ -8,7 +8,7 @@ Plugin URI:
 
 Description: Plugin to add authentication via Membee Single Sign-On service.
 
-Version: 1.1.1
+Version: 1.2.1
 
 Author: achilles_sm
 
@@ -63,27 +63,19 @@ if (function_exists('json_encode')) {
 
                   
 
-    if ($membee_options['secret']) {
+    if ($membee_options['membee_secret']) {
 
-      if (($_REQUEST['token'])&&(strlen($_REQUEST['token'])==36)&&(strip_tags($_REQUEST['token'])==$_REQUEST['token'])) {    //if logged in at membee, let's request user details and log in to WP                  
+      if (isset($_REQUEST['token'])&&(strlen($_REQUEST['token'])==36)&&(strip_tags($_REQUEST['token'])==$_REQUEST['token'])) {    //if logged in at membee, let's request user details and log in to WP                  
 
-        process_login('https://memberservices.membee.com/feeds/profile/ExchangeTokenForID/', array('APIKEY='.$membee_options['secret'], 'ClientID='.$membee_options['client_id'], 'AppID='.$membee_options['app_id'], 'Token='.$_REQUEST['token']));                         
+        process_login('https://memberservices.membee.com/feeds/profile/ExchangeTokenForID/', array('APIKEY='.$membee_options['membee_secret'], 'ClientID='.$membee_options['membee_client_id'], 'AppID='.$membee_options['membee_app_id'], 'Token='.$_REQUEST['token']));                         
 
       }
 
       if ((!is_user_logged_in())&&($_SERVER['PHP_SELF'] != '/wp-login.php')) {         
 
-        if (!$_COOKIE['membee-checked']) {                        //check if logged in at membee server  
+                                              
 
-          setcookie('membee-checked', 1, time()+5*60);            //perform checks not more often than once in 5 min
-
-          wp_safe_redirect('https://memberservices.membee.com/feeds/login/LoginCheck.aspx?clientid='.$membee_options['client_id'].'&appid='.$membee_options['app_id'].'&destURL='.urlencode('http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']));
-
-          exit;
-
-        }                                       
-
-      } else if (($_REQUEST['redirect_to'])&&($_REQUEST['loggedin'] == true )) {   //makes it compatible with Wordpress Access Control plugin
+      } else if (isset($_REQUEST['redirect_to'])&&($_REQUEST['loggedin'] == true )) {   //makes it compatible with Wordpress Access Control plugin
         
         wp_safe_redirect(get_bloginfo('url').urldecode($_REQUEST['redirect_to']));
           
@@ -105,7 +97,7 @@ if (function_exists('json_encode')) {
 
   }
   $ua = $_SERVER['HTTP_USER_AGENT'];
-  if ((!preg_match('/facebookexternalhit/si',$ua))&&(!preg_match('/googlebot/si',$ua))&&(!preg_match('/gsa-crawler/si',$ua))&&(!preg_match('/LinkedInBot/si',$ua))) {
+  if ((!preg_match('/facebookexternalhit/si',$ua))&&(!preg_match('/googlebot/si',$ua))&&(!preg_match('/gsa-crawler/si',$ua))&&(!preg_match('/LinkedInBot/si',$ua))&&(!preg_match('/feedburner/si',$ua))&&(!preg_match('/google/si',$ua))&&(!preg_match('/slurp/si',$ua))&&(!preg_match('/ask/si',$ua))&&(!preg_match('/teoma/si',$ua))&&(!preg_match('/yandex/si',$ua))&&(!preg_match('/mj12bot/si',$ua))&&(!preg_match('/validator/si',$ua))&&(!preg_match('/ning/si',$ua))) {
     add_action('init', 'membee_init'); 
   }
   
